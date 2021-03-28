@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Swich, Route, Link } from 'react-router-dom'
-import styled from 'styled-compoments'
+import styled from 'styled-components'
 import AddTodo from './AddTodo'
 import EditTodo from './EditTodo'
 import TodoList from './TodoList'
@@ -17,7 +17,7 @@ const NavBar = styled.nav`
 
 const Logo = styled.div`
   font-weight:  bold;
-  font-size: 3px;
+  font-size: 23px;
   letter-spacing: 3px;
 `
 
@@ -45,9 +45,25 @@ const Wrapper = styled.div`
 
 function App() {
   return (
-    <div>
-      App
-    </div>
+    <>
+      <NavBar>
+        <Logo>
+          TODO
+        </Logo>
+        <NavItems>
+          <NavItem>
+            <Link to="/todos">
+              Todos
+            </Link>
+          </NavItem>
+          <NavItem>
+            <Link to="/todos/new">
+              A New Todo
+            </Link>
+          </NavItem>
+        </NavItems>
+      </NavBar>
+    </>
   )
 }
 
