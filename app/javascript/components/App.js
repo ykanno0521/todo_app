@@ -9,7 +9,7 @@ import './App.css'
 
 const NavBar = styled.nav`
   backGround: #dbfffe;
-  min-height:8vh;
+  min-height: 8vh;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -36,13 +36,11 @@ const NavItem = styled.li`
     opacity: 1;
   }
 `
-
 const Wrapper = styled.div`
   width: 700px;
   max-width: 85%;
   margin: 20% auto;
 `
-
 function App() {
   return (
     <>
