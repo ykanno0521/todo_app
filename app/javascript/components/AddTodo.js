@@ -37,8 +37,10 @@ const Icon = styled.span`
   align-items: center;
   margin: 0 7px;
 `
+// toastを表示
 toast.configure()
 
+// 関数コンポーネントに初期値を設定
 function AddTodo(props) {
   const initialTodoState = {
     id: null,
@@ -46,32 +48,42 @@ function AddTodo(props) {
     is_completed: false
   }
 
+  // useStateで関数コンポーネントに状態を持たせる
   const [todo, setTodo] = useState(initialTodoState)
 
+  // フォームに入力される毎に呼び出されstateを更新する
   const handleInputChange = (event) => {
     const { name, value } = event.target;
+    // console.log(name, value);
     setTodo({ ...todo, [name]: value})
   }
 
+  // 新規登録成功時にtoastを表示させる
   const notify = () => {
     toast.success('Todo successfully created!!', {
       position: 'bottom-center',
       hideProgressBar: true
     })
   }
+
+  // 入力したtodo.nameを保存する
   const saveTodo = () => {
+    // console.log(data)
+    // console.log(todo)
     var data = {
       name: todo.name
     }
     axios.post('/api/v1/todos', data)
       .then(resp => {
         console.log(resp)
+        // stateの更新
         setTodo({
           id: resp.data.id,
           name: resp.data.name,
           is_completed: resp.data.is_completed
         })
         notify()
+        // 画面遷移(前居た画面を履歴に追加し、ブラウザの戻るボタンで戻れるようにする)
         props.history.push('/todos')
       })
       .catch(e => {

@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
+// スタイル定義---
 const InputName = styled.input`
   font-size: 20px;
   width: 100%;
@@ -48,7 +49,9 @@ const DeleteButton = styled.button`
   border-radius: 3px;
   cursor: pointer;
 `
+// ---
 
+// 
 toast.configure()
 
 function EditTodo(props) {
