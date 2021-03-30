@@ -39,7 +39,7 @@ const NavItem = styled.li`
 const Wrapper = styled.div`
   width: 700px;
   max-width: 85%;
-  margin: 20% auto;
+  margin: 2% auto;
 `
 function App() {
   return (

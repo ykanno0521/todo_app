@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { FiSend } from 'react-icons/fi'
+import { handleRemote } from '@rails/ujs'
 
 const InputAndButton = styled.div`
   display: flex;
@@ -80,6 +81,23 @@ function AddTodo(props) {
   return (
     <>
       <h1>New Todo</h1>
+      <InputAndButton>
+        <InputName
+          type="text"
+          required
+          value={todo.name}
+          name="name"
+          onChange={handleInputChange}
+        />
+        <Button
+          onClick={saveTodo}
+          disabled={(!todo.name || /^\s$/.test(todo.name))}
+        >
+        <Icon>
+          <FiSend />
+        </Icon>
+        </Button>
+      </InputAndButton>
     </>
   )
 }
